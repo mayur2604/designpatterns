@@ -1,3 +1,4 @@
+import java.util.*;
 interface Transport
 {
     void deliver();
@@ -25,6 +26,13 @@ class Logistics
     void doDelivery(){
          System.out.println(" do delivery");
     }
+    static Logistics createlogistic(String mode){
+         if(mode.equals("road"))
+             return new RoadLogistics();
+         else if(mode.equals("sea"))
+             return new SeaLogistics();
+         return null;
+    }
 }
 class RoadLogistics extends Logistics
 {
@@ -46,12 +54,12 @@ class SeaLogistics extends Logistics
 public class Factory {
 
     public static void main(String[] args) {
-        Logistics sea=new SeaLogistics();
-        Transport t=sea.createTransport();
-        t.deliver();
-        Logistics road=new RoadLogistics();
-        t=road.createTransport();
-        t.deliver();
-        road.doDelivery();
+
+        Scanner sc=new Scanner(System.in);
+        String mode=sc.next();
+        Logistics logistics=Logistics.createlogistic(mode);
+        Transport transport=logistics.createTransport();
+        transport.deliver();
+        logistics.doDelivery();
     }
 }
