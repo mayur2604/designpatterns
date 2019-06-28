@@ -1,7 +1,7 @@
 package BridgeDesignPattern;
 
 public class Remote {
-    Device device = null;
+    protected Device device = null;
 
     public Remote(String type) {
         if (type.equals("tv")) {
