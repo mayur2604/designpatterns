@@ -2,8 +2,8 @@ package Factory;
 
 public class Logistics {
     Transport createTransport() {
-        Transport t = null;
-        return t;
+        Transport transport = null;
+        return transport;
     }
 
     void doDelivery() {
@@ -15,6 +15,7 @@ public class Logistics {
             return new RoadLogistics();
         else if (mode.equals("sea"))
             return new SeaLogistics();
-        return null;
+        else
+            return null;
     }
 }

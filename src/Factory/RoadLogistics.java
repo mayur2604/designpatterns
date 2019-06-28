@@ -1,9 +1,8 @@
 package Factory;
 
-public class RoadLogistics extends Logistics
-{
-    Transport createTransport(){
-        Transport t=new Truck();
-        return t;
+public class RoadLogistics extends Logistics {
+    Transport createTransport() {
+        Transport truck = new Truck();
+        return truck;
     }
 }
